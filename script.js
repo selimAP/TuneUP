@@ -38,3 +38,15 @@ song.onended = function() {
     playButtonSide.classList.remove("pause");
     playButtonSide.innerHTML = '<ion-icon name="play"></ion-icon>';
 }
+
+setInterval(() => {
+
+    let songDuration = progress.max = song.duration;
+    let songDurationSmall = document.getElementById('musicTime');
+    songDurationSmall.innerHTML = Math.floor(songDuration / 60) + ':' + Math.floor(songDuration % 60);
+
+    let currentTime = progress.value = song.currentTime;
+    let currentTimeSmall = document.getElementById('currentTime');
+    currentTimeSmall.innerHTML = Math.floor(currentTime / 60) + ':' + Math.floor(currentTime % 60);
+
+}, 1);
