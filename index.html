@@ -11,6 +11,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <script src="script.js" async></script>
 </head>
 <body>
 
@@ -42,7 +44,7 @@
         <div class="music-section-block">
             <div class="music-block">
                 <div class="play-music-button">
-                    <button><ion-icon name="play"></ion-icon></button>
+                    <button id="playbutton-side" onclick="playPause()"><ion-icon name="play"></ion-icon></button>
                 </div>
                 <div class="music-pic">
                     <img src="images/testbild.jpg" alt="">
@@ -205,13 +207,18 @@
             <div class="playing-music-controller">
                 <div class="playing-music-controller-buttons">
                     <button class="playing-music-controller-back-button"><ion-icon name="play-back"></ion-icon></ion-icon></button>
-                    <button class="playing-music-controller-play-button"><ion-icon name="play"></ion-icon></button>
+                    <button id="playbutton-main" class="playing-music-controller-play-button" onclick="playPause()"><ion-icon  name="play"></ion-icon></button>
                     <button class="playing-music-controller-skip-button"><ion-icon name="play-forward"></ion-icon></button>
                 </div>
                 <div class="playing-music-bar">
                     <small>00:00</small>
-                    <input class="test" type="range" min="0" max="100" value="50">
-                    <small>03:00</small>
+
+                    <audio id="song">
+                        <source src="testmusicdata.wav">
+                    </audio>
+
+                    <input class="test" type="range" min="0" max="1000" id="progress">
+                    <small id="musicTime">03:00</small>
                 </div>
             </div>
             
@@ -226,8 +233,6 @@
 
 
 
-
-    <script src="script.js"></script>
 
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

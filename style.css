@@ -48,7 +48,6 @@ body{
     opacity: 1;
     transform: translateY(0px);
 }
-/*Mit javascript so machen das wenn man ueber den button hovert das es aufpopped*/
 
 .addSong button{
     background: var(--secColor);
