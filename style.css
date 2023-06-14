@@ -293,10 +293,12 @@ body{
     border-radius: 10px;
 }
 
+
 .playing-music-volume-bigger ion-icon{
     color: var(--fontColorMild);
     font-size: 22px;
     font-weight: bolder;
+    margin-top: 6px;
 }
 
 .playing-music-volume-bigger button{

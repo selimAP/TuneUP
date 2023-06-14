@@ -49,4 +49,24 @@ setInterval(() => {
     let currentTimeSmall = document.getElementById('currentTime');
     currentTimeSmall.innerHTML = Math.floor(currentTime / 60) + ':' + Math.floor(currentTime % 60);
 
+
+    let musicVolume = document.getElementById('music-volume');
+    let musicVolumeIcon = document.getElementById('musicVolumeIcon');
+
+
+    if(musicVolume.value <= 0){  
+        musicVolumeIcon.innerHTML = '<ion-icon name="volume-mute-outline"></ion-icon>';
+    }else if(musicVolume.value <= 30){
+        musicVolumeIcon.innerHTML = '<ion-icon name="volume-low-outline"></ion-icon>';
+    }
+    else if(musicVolume.value < 65){
+        musicVolumeIcon.innerHTML = '<ion-icon name="volume-medium-outline"></ion-icon>';  
+    }
+    else if(musicVolume.value > 65){
+        musicVolumeIcon.innerHTML = '<ion-icon name="volume-high-outline"></ion-icon>';  
+    }
+
+
+
 }, 1);
+

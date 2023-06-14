@@ -71,123 +71,6 @@
         </div>
 
 
-
-
-        <div class="music-section-block">
-            <div class="music-block">
-                <div class="play-music-button">
-                    <button><ion-icon name="play"></ion-icon></button>
-                </div>
-                <div class="music-pic">
-                    <img src="images/testbild.jpg" alt="">
-                </div>
-                <div class="music-name-artist">
-                    <h4>Gastarbeiter</h4>
-                    <h5>Eko Fresh</h5>
-                </div>
-                <div class="space-music-block">
-                <div class="album-name">
-                    <h5>EK to the Roots</h5>
-                </div>
-                <div class="downlaod-date">
-                    <h5>26.11.2023</h5>
-                </div>
-                <div class="music-duration">
-                    <h5>4:28</h5>
-                </div>
-            </div>
-                <div class="music-setting">
-                    <button>⁝</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="music-section-block">
-            <div class="music-block">
-                <div class="play-music-button">
-                    <button><ion-icon name="play"></ion-icon></button>
-                </div>
-                <div class="music-pic">
-                    <img src="images/testbild.jpg" alt="">
-                </div>
-                <div class="music-name-artist">
-                    <h4>Gastarbeiter</h4>
-                    <h5>Eko Fresh</h5>
-                </div>
-                <div class="space-music-block">
-                <div class="album-name">
-                    <h5>EK to the Roots</h5>
-                </div>
-                <div class="downlaod-date">
-                    <h5>26.11.2023</h5>
-                </div>
-                <div class="music-duration">
-                    <h5>4:28</h5>
-                </div>
-            </div>
-                <div class="music-setting">
-                    <button>⁝</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="music-section-block">
-            <div class="music-block">
-                <div class="play-music-button">
-                    <button><ion-icon name="play"></ion-icon></button>
-                </div>
-                <div class="music-pic">
-                    <img src="images/testbild.jpg" alt="">
-                </div>
-                <div class="music-name-artist">
-                    <h4>Gastarbeiter</h4>
-                    <h5>Eko Fresh</h5>
-                </div>
-                <div class="space-music-block">
-                <div class="album-name">
-                    <h5>EK to the Roots</h5>
-                </div>
-                <div class="downlaod-date">
-                    <h5>26.11.2023</h5>
-                </div>
-                <div class="music-duration">
-                    <h5>4:28</h5>
-                </div>
-            </div>
-                <div class="music-setting">
-                    <button>⁝</button>
-                </div>
-            </div>
-        </div>
-
-        <div class="music-section-block">
-            <div class="music-block">
-                <div class="play-music-button">
-                    <button><ion-icon name="play"></ion-icon></button>
-                </div>
-                <div class="music-pic">
-                    <img src="images/testbild.jpg" alt="">
-                </div>
-                <div class="music-name-artist">
-                    <h4>Gastarbeiter</h4>
-                    <h5>Eko Fresh</h5>
-                </div>
-                <div class="space-music-block">
-                <div class="album-name">
-                    <h5>EK to the Roots</h5>
-                </div>
-                <div class="downlaod-date">
-                    <h5>26.11.2023</h5>
-                </div>
-                <div class="music-duration">
-                    <h5>4:28</h5>
-                </div>
-            </div>
-                <div class="music-setting">
-                    <button>⁝</button>
-                </div>
-            </div>
-        </div>
     </div>
 
 
@@ -211,20 +94,20 @@
                     <button class="playing-music-controller-skip-button"><ion-icon name="play-forward"></ion-icon></button>
                 </div>
                 <div class="playing-music-bar">
-                    <small>00:00</small>
+                    <small id="currentTime">00:00</small>
 
                     <audio id="song">
-                        <source src="testmusicdata.wav">
+                        <source src="music-library/testmusicdata(3).wav">
                     </audio>
 
-                    <input class="test" type="range" min="0" max="1000" id="progress">
-                    <small id="musicTime">03:00</small>
+                    <input type="range" min="0" max="100" id="progress">
+                    <small id="musicTime">00:00</small>
                 </div>
             </div>
             
             <div class="playing-music-volume-bigger">
-                <ion-icon name="volume-high-outline"></ion-icon>
-                <input type="range" min="0" max="100">
+                <div id="musicVolumeIcon" class="music-volume-icon"><ion-icon name="volume-high-outline"></ion-icon></div>
+                <input id="music-volume" type="range" min="0" max="100">
                 <button><ion-icon name="expand-outline"></ion-icon></button>
             </div>
         </div>
