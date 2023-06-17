@@ -75,40 +75,40 @@
 
 
     <div class="play-music-section">
-        <div class="play-music-block">
 
-            <div class="playing-music-overview">
+        <div class="play-music-block" id="musicBlock">
+            <div class="playing-music-overview" id="playingMusicOverview">
                 <div class="playing-music-cover">
-                    <img src="images/testbild.jpg" alt="">
+                    <img id="CoverPictureBar" src="images/testbild.jpg" alt="">
                 </div>
                 <div class="playing-music-name-artist">
-                    <h4>Gastarbeiter</h4>
-                    <h5>Eko Fresh</h5>
+                    <h4 id="musicNameBar">Gastarbeiter</h4>
+                    <h5 id="artistNameBar">Eko Fresh</h5>
                 </div>
             </div>
 
-            <div class="playing-music-controller">
+            <div class="playing-music-controller" id="playingMusicController">
                 <div class="playing-music-controller-buttons">
-                    <button class="playing-music-controller-back-button"><ion-icon name="play-back"></ion-icon></ion-icon></button>
+                    <button id="playbutton-back" class="playing-music-controller-back-button"><ion-icon name="play-back"></ion-icon></ion-icon></button>
                     <button id="playbutton-main" class="playing-music-controller-play-button" onclick="playPause()"><ion-icon  name="play"></ion-icon></button>
-                    <button class="playing-music-controller-skip-button"><ion-icon name="play-forward"></ion-icon></button>
+                    <button id="playbutton-skip" class="playing-music-controller-skip-button"><ion-icon name="play-forward"></ion-icon></button>
                 </div>
-                <div class="playing-music-bar">
+                <div class="playing-music-bar" id="playingMusicBar">
                     <small id="currentTime">00:00</small>
 
                     <audio id="song">
                         <source src="music-library/testmusicdata(3).wav">
                     </audio>
 
-                    <input type="range" min="0" max="100" id="progress">
+                    <input  type="range" min="0" max="100" id="progress">
                     <small id="musicTime">00:00</small>
                 </div>
             </div>
             
-            <div class="playing-music-volume-bigger">
+            <div class="playing-music-volume-bigger" id="musicVolumeBigger">
                 <div id="musicVolumeIcon" class="music-volume-icon"><ion-icon name="volume-high-outline"></ion-icon></div>
                 <input id="music-volume" type="range" min="0" max="100" value="80">
-                <button><ion-icon name="expand-outline"></ion-icon></button>
+                <button id="expand"><ion-icon name="expand-outline"></ion-icon></button>
             </div>
         </div>
 
