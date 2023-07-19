@@ -4,6 +4,7 @@
     --secColorMild: #00a258;
     --fontColor: white;
     --fontColorMild: #dddddd;
+    --barColor: rgb(31, 31, 31);
     
 }
 
@@ -13,7 +14,7 @@
 }
 
 body{
-    background: black;
+    background: var(--mainColor);
     font-family: 'Noto Sans', sans-serif;
 }
 
@@ -27,6 +28,7 @@ body{
 .navlogo{
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 .navlogo img{
     height: 60px;
@@ -34,6 +36,7 @@ body{
     display: flex;
     align-items: center;
     float: left;
+    
 }
 .navlogo span{
     font-size: 20px;
@@ -111,7 +114,7 @@ body{
     align-items: center;
 }
 .music-block:hover{
-    background: rgb(31, 31, 31);
+    background: var(--barColor);
 }
 
 .play-music-button button{
@@ -308,3 +311,147 @@ body{
     cursor: pointer;
 }
 
+
+
+/*Popup style*/
+
+.addsong-popup{
+    display: none;
+    align-items: center;
+    position: fixed;
+    z-index: 100;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+}
+
+.addsong-popup-container{
+    background: var(--barColor);
+    height: 400px;
+    width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.addsong-exit{
+    display: flex;
+    justify-content: right;
+}
+.addsong-exit button{
+    background: none;
+    border: none;
+    color: var(--fontColorMild);
+    font-size: 23px;
+    cursor: pointer;
+    padding: none;
+}
+.addsong-exit button:hover{
+    background: none;
+    border: none;
+    color: var(--secColor);
+    font-size: 23px;
+    cursor: pointer;
+    padding: none;
+}
+
+.addsong-fileinputs{
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
+.addsong-fileinputs{
+    color: var(--fontColorMild);
+    font-size: 13px;
+
+}
+.addsong-input label{
+    margin: 5px;
+}
+.addsong-input input{
+    display: flex;
+    justify-content: center;
+    color: var(--fontColorMild);
+    font-size: 12px;
+    margin: 5px;
+}
+.add-cover-picture label{
+    margin: 5px;
+}
+.add-cover-picture input{
+    display: flex;
+    justify-content: center;
+    color: var(--fontColorMild);
+    margin: 5px;
+    font-size: 12px;
+}
+
+.addsong-music-name-input{
+    margin-top: 30px;
+}
+.addsong-music-name-input, .addsong-artist-name-input, .addsong-album-name-input{
+    display: flex;
+    justify-content: center;
+}
+
+.addsong-music-name-input input, .addsong-artist-name-input input, .addsong-album-name-input input{
+    width: 415px;
+    height: 40px;
+    border-radius: 4px;
+    border: 0;
+    color: var(--fontColor);
+    font-size: 16px;
+    background: #2b2b2b;
+    outline: none;
+    padding-left: 10px;
+    margin: 10px;
+    display: flex;
+    justify-content: center;
+}
+ 
+.addsong-music-name-input input:focus, .addsong-artist-name-input input:focus, .addsong-album-name-input input:focus{
+    background: #383838;
+    border: .1px solid var(--secColor);
+}
+
+.addsong-buttons{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+}
+.addsong-buttons button{
+    margin: 5px;
+}
+
+.addsong-delete-button button{
+    width: 207.5px;
+    height: 45px;
+    background: none;
+    border: 1px red solid;
+    border-radius: 5px 0px 0px 5px;
+    color: var(--fontColor);
+    font-size: 15px;
+}
+.addsong-delete-button button:hover{
+    background: red;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.addsong-save-button button{
+    width: 207.5px;
+    height: 45px;
+    background: none;
+    border: 1px var(--secColor) solid;
+    border-radius: 0px 5px 5px 0px;
+    color: var(--fontColor);
+    font-size: 15px;
+}
+.addsong-save-button button:hover{
+    background: var(--secColor);
+    cursor: pointer;
+    transition: .2s;
+}

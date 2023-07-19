@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TuneUP - Music Player</title>
+    <title>TuneUP</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/TuneUp_logo.png">
 
@@ -19,11 +19,11 @@
     <nav>
         <div class="navbar">
             <div class="navlogo">
-                <img src="images/TuneUp_logo.png" alt="">
+                <img on src="images/TuneUp_logo.png" alt="">
                 <span>TuneUP</span>
             </div>
             <div class="addSong">
-                <button><span>+</span> Add Song</button>
+                <button id="AddSongBtn"><span>+</span> Add Song</button>
             </div>
         </div>
     </nav>
@@ -36,6 +36,45 @@
             <h2>Playlist</h2>
         </div>
     </div>
+
+
+
+
+    <div class="addsong-popup" id="addsongPopup">
+        <div class="addsong-popup-container">
+            <div class="addsong-exit">
+                <button id="AddsongExitBtn"><ion-icon name="close-outline"></ion-icon></button>
+            </div>
+            <div class="addsong-fileinputs">
+                <div class="addsong-input">
+                    <label for="">Add a Song file (only mp3).</label>
+                    <input type="file">
+                </div>
+                <div class="add-cover-picture">
+                    <label for="">Add the Cover Picture file.</label>
+                    <input type="file">
+                </div>
+            </div>
+            <div class="addsong-music-name-input">
+                <input type="text" placeholder="Music name">
+            </div>
+            <div class="addsong-artist-name-input">
+                <input type="text" placeholder="Artist name">
+            </div>
+            <div class="addsong-album-name-input">
+                <input type="text" placeholder="Album name">
+            </div>
+            <div class="addsong-buttons">
+                <div class="addsong-delete-button">
+                    <button>Delete</button>
+                </div>
+                <div class="addsong-save-button">
+                    <button>Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
 
 
@@ -70,6 +109,9 @@
             </div>
         </div>
 
+        <audio id="song">
+            <source src="music-library/testmusicdata(3).wav">
+        </audio>
 
     </div>
 
@@ -96,9 +138,7 @@
                 <div class="playing-music-bar" id="playingMusicBar">
                     <small id="currentTime">00:00</small>
 
-                    <audio id="song">
-                        <source src="music-library/testmusicdata(3).wav">
-                    </audio>
+
 
                     <input  type="range" min="0" max="100" id="progress">
                     <small id="musicTime">00:00</small>

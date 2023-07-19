@@ -200,3 +200,14 @@ expandButton.addEventListener("click", function() {
 });
 
 
+let addsongPopup = document.getElementById('addsongPopup');
+let addSongButton = document.getElementById('AddSongBtn');
+let ExitPopupButton = document.getElementById('AddsongExitBtn');
+
+addSongButton.onclick = function(){
+    addsongPopup.style.display = "flex";
+}
+
+ExitPopupButton.onclick = function(){
+    addsongPopup.style.display = "none";
+}
