@@ -47,10 +47,7 @@ body{
     transform: translateY(12px);
     cursor: pointer;
 }
-.navlogo span:hover{
-    opacity: 1;
-    transform: translateY(0px);
-}
+
 
 .addSong button{
     background: var(--secColor);

@@ -42,10 +42,13 @@ song.onended = function() {
 setInterval(() => {
 
     let songDuration = progress.max = song.duration;
+    let musicDurationBar = document.getElementById('musicDuration');
     let songDurationSmall = document.getElementById('musicTime');
     let songDurationMinutes = Math.floor(songDuration / 60);
     let songDurationMinutesSeconds = Math.floor(songDuration % 60);
+
     songDurationSmall.innerHTML = addZeros(songDurationMinutes) + ':' + addZeros(songDurationMinutesSeconds);
+    musicDuration.innerHTML = addZeros(songDurationMinutes) + ':' + addZeros(songDurationMinutesSeconds);
 
     let currentTime = progress.value = song.currentTime;
     let currentTimeSmall = document.getElementById('currentTime');
@@ -78,7 +81,7 @@ setInterval(() => {
 
 
 
-}, 100);
+}, 1000);
 
 function addZeros(number) {
     if (number < 10) {
@@ -86,11 +89,6 @@ function addZeros(number) {
     }
     return number
 }
-
-
-
-
-
 
 
 let expandButton = document.getElementById('expand');
@@ -206,8 +204,27 @@ let ExitPopupButton = document.getElementById('AddsongExitBtn');
 
 addSongButton.onclick = function(){
     addsongPopup.style.display = "flex";
+    addsongPopup.style.transition = "1s";
 }
 
 ExitPopupButton.onclick = function(){
     addsongPopup.style.display = "none";
 }
+
+
+
+let logoText = document.getElementById('logoText');
+let navLogo = document.getElementById('navlogo');
+
+let logoEffect = function(){
+    logoText.style.opacity = '1';
+    logoText.style.transform = 'translateY(0)';
+};
+
+let test = function(){
+    logoText.style.opacity = '0';
+    logoText.style.transform = 'translateY(10px)';
+};
+
+navLogo.addEventListener('mouseenter', logoEffect);
+navLogo.addEventListener('mouseleave', test);
