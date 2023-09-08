@@ -1,93 +1,93 @@
 let progress = document.getElementById('progress');
-let song = document.getElementById('song');
+let playButtons = document.getElementsByClassName('playbutton-side');
 let playButtonMain = document.getElementById('playbutton-main');
-let playButtonSide = document.getElementById('playbutton-side');
+let songs = document.getElementsByClassName('song');
 
-song.onloadedmetadata = function() {
-    progress.max = song.duration;
-    progress.value = song.currentTime;
+
+function initializePlayer(index) {
+    let song = songs[index];
+
+    song.onloadedmetadata = function() {
+        progress.max = song.duration;
+        progress.value = song.currentTime;
+    };
+
+    song.onended = function() {
+        playButtons[index].classList.remove("pause");
+        playButtons[index].innerHTML = '<ion-icon name="play"></ion-icon>';
+    };
+
 }
 
-function playPause() {
+let currentSongIndex = -1;
+
+function playPause(button) {
+    let index = Array.from(playButtons).indexOf(button);
+    let song = songs[index];
+
+    if (currentSongIndex !== -1 && currentSongIndex !== index) {
+        let currentSong = songs[currentSongIndex];
+        currentSong.pause();
+        playButtons[currentSongIndex].classList.remove("pause");
+        playButtons[currentSongIndex].innerHTML = '<ion-icon name="play"></ion-icon>';
+    }
+
     if (song.paused) {
         song.play();
         playButtonMain.classList.add("pause");
         playButtonMain.innerHTML = '<ion-icon name="pause"></ion-icon>';
-        playButtonSide.classList.add("pause");
-        playButtonSide.innerHTML = '<ion-icon name="pause"></ion-icon>';
+        button.classList.add("pause");
+        button.innerHTML = '<ion-icon name="pause"></ion-icon>';
     } else {
         song.pause();
         playButtonMain.classList.remove("pause");
         playButtonMain.innerHTML = '<ion-icon name="play"></ion-icon>';
-        playButtonSide.classList.remove("pause");
-        playButtonSide.innerHTML = '<ion-icon name="play"></ion-icon>';
+        button.classList.remove("pause");
+        button.innerHTML = '<ion-icon name="play"></ion-icon>';
+    }
+
+    currentSongIndex = song.paused ? -1 : index;
+}
+
+function playPauseUniversal() {
+    if (currentSongIndex !== -1) {
+        let currentSong = songs[currentSongIndex];
+        let currentButton = playButtons[currentSongIndex];
+
+        if (currentSong.paused) {
+            currentSong.play();
+            currentButton.classList.add("pause");
+            currentButton.innerHTML = '<ion-icon name="pause"></ion-icon>';
+            playButtonMain.classList.add("pause");
+            playButtonMain.innerHTML = '<ion-icon name="pause"></ion-icon>';
+        } else {
+            currentSong.pause();
+            currentButton.classList.remove("pause");
+            currentButton.innerHTML = '<ion-icon name="play"></ion-icon>';
+            playButtonMain.classList.remove("pause");
+            playButtonMain.innerHTML = '<ion-icon name="play"></ion-icon>';
+        }
     }
 }
 
-setInterval(() => {
-    progress.value = song.currentTime;
-}, 500);
 
-progress.oninput = function() {
-    song.currentTime = progress.value;
+
+function formatTime(timeInSeconds) {
+    let minutes = Math.floor(timeInSeconds / 60);
+    let seconds = Math.floor(timeInSeconds % 60);
+    return `${addZeros(minutes)}:${addZeros(seconds)}`;
 }
-
-song.onended = function() {
-    playButtonMain.classList.remove("pause");
-    playButtonMain.innerHTML = '<ion-icon name="play"></ion-icon>';
-    playButtonSide.classList.remove("pause");
-    playButtonSide.innerHTML = '<ion-icon name="play"></ion-icon>';
-}
-
-setInterval(() => {
-
-    let songDuration = progress.max = song.duration;
-    let musicDurationBar = document.getElementById('musicDuration');
-    let songDurationSmall = document.getElementById('musicTime');
-    let songDurationMinutes = Math.floor(songDuration / 60);
-    let songDurationMinutesSeconds = Math.floor(songDuration % 60);
-
-    songDurationSmall.innerHTML = addZeros(songDurationMinutes) + ':' + addZeros(songDurationMinutesSeconds);
-    musicDuration.innerHTML = addZeros(songDurationMinutes) + ':' + addZeros(songDurationMinutesSeconds);
-
-    let currentTime = progress.value = song.currentTime;
-    let currentTimeSmall = document.getElementById('currentTime');
-    let currentTimeMinutes = Math.floor(currentTime / 60);
-    let currentTimeSeconds = Math.floor(currentTime % 60);
-    currentTimeSmall.innerHTML = addZeros(currentTimeMinutes) + ':' + addZeros(currentTimeSeconds);
-
-
-    let musicVolume = document.getElementById('music-volume');
-    let musicVolumeIcon = document.getElementById('musicVolumeIcon');
-
-
-    if(musicVolume.value <= 0){  
-        musicVolumeIcon.innerHTML = '<ion-icon name="volume-mute-outline"></ion-icon>';
-        song.volume = 0;
-    }else if(musicVolume.value <= 30){
-        musicVolumeIcon.innerHTML = '<ion-icon name="volume-low-outline"></ion-icon>';
-        song.volume = 0.3;
-    }
-    else if(musicVolume.value < 65){
-        musicVolumeIcon.innerHTML = '<ion-icon name="volume-medium-outline"></ion-icon>';  
-        song.volume = 0.65;
-    }
-    else if(musicVolume.value > 65){
-        musicVolumeIcon.innerHTML = '<ion-icon name="volume-high-outline"></ion-icon>';  
-        song.volume = 1.0;
-    }
-
-
-
-
-
-}, 1000);
 
 function addZeros(number) {
     if (number < 10) {
         return "0" + number;
     }
-    return number
+    return number;
+}
+
+
+for (let i = 0; i < songs.length; i++) {
+    initializePlayer(i);
 }
 
 
